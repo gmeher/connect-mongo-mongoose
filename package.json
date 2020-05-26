@@ -1,5 +1,5 @@
 {
-  "name": "Yelp-Client",
+  "name": "belb-yelp-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
