@@ -11,22 +11,13 @@ export function Search() {
     const params = new URLSearchParams(location.search);
     const term = params.get('find_desc');
     const locationParam = params.get('find_loc');
-    const [businesses, amountResults, searchParams, performSearch] = useBusinessSearch(term, locationParam);
-
-    function search(term, location) {
-        console.log('I am called');
-        performSearch({term, location});
-    }
+    const [businesses, amountResults, searchParams, setSearchParams] = useBusinessSearch(term, locationParam);
 
     return (
         <div>
-            <NavBar term={term} location={locationParam} search={search}/>
+            <NavBar term={term} location={locationParam}/>
             <SubNav/>
-            <SearchResultsSummary term={searchParams.term}
-                                  location={searchParams.location}
-                                  amountResults={amountResults}
-                                  shownResults={businesses ? businesses.length : 0}
-            />
+            <SearchResultsSummary term={term} location={locationParam}/>
             <SearchResults businesses={businesses}/>
         </div>
     );
